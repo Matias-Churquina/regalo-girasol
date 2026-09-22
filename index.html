@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>"
+  >
+
+  <meta name="theme-color" content="#fff9e8" />
+
+  <title>Una cosita para vos 🌻</title>
+</head>
+
+<body>
+
+  <main id="app">
+
+    <!-- ========================================
+         ESCENA 1 - PORTADA
+    ========================================= -->
+
+    <section id="intro" class="scene scene-active">
+
+      <div class="floating-flowers" aria-hidden="true"></div>
+
+      <div class="intro-content">
+
+        <span class="small-text">
+          SEPTIEMBRE 🌻
+        </span>
+
+        <h1>
+          Marieeeels...
+          <span>¡Sí, vos!</span>
+        </h1>
+
+        <p>
+          Tengo algo para mostrarte.
+        </p>
+
+        <button id="startButton" class="main-button">
+          Hacé click acá
+          <span>↓</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================
+         ESCENA 2 - GIRASOL
+    ========================================= -->
+
+    <section id="flowerScene" class="scene">
+
+      <!-- Flores y pétalos ambientales -->
+      <div id="petalContainer" class="petal-container" aria-hidden="true"></div>
+
+      <!-- Frases que quedarán flotando alrededor del girasol -->
+      <div id="memoryMessages" class="memory-messages"></div>
+
+      <div class="flower-background"></div>
+
+      <div class="flower-header">
+
+        <span class="counter">
+          <span id="progressNumber">0</span>/6
+        </span>
+
+        <p id="instruction">
+          Presioná la pantalla para que crezca
+        </p>
+
+      </div>
+
+
+      <!-- Mensaje que aparece con cada toque -->
+
+      <div id="messageContainer" class="message-container">
+
+        <p id="growthMessage"></p>
+
+      </div>
+
+
+      <!-- ====================================
+           GIRASOL SVG
+      ===================================== -->
+
+      <div id="flowerContainer" class="flower-container">
+
+        <svg
+          id="sunflower"
+          viewBox="0 0 300 520"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+          <!-- TALLO -->
+
+          <path
+            id="stem"
+            d="M150 440
+               C145 360,
+                160 280,
+                150 170"
+            fill="none"
+            stroke="#538d4e"
+            stroke-width="12"
+            stroke-linecap="round"
+          />
+
+
+          <!-- HOJA IZQUIERDA -->
+
+          <path
+            id="leafLeft"
+            d="M150 330
+               C110 285,
+                65 295,
+                75 345
+               C105 360,
+                130 350,
+                150 330Z"
+            fill="#65a765"
+          />
+
+
+          <!-- HOJA DERECHA -->
+
+          <path
+            id="leafRight"
+            d="M150 270
+               C190 225,
+                235 240,
+                225 285
+               C195 300,
+                170 290,
+                150 270Z"
+            fill="#76b86d"
+          />
+
+
+          <!-- FLOR -->
+
+          <g id="flowerHead" transform="translate(150 145)">
+
+            <!-- PÉTALOS -->
+
+            <g id="petals">
+
+              <ellipse
+                cx="0"
+                cy="-62"
+                rx="19"
+                ry="48"
+                fill="#f6c945"
+              />
+
+              <ellipse
+                cx="0"
+                cy="-62"
+                rx="19"
+                ry="48"
+                fill="#f6c945"
+                transform="rotate(45)"
+              />
+
+              <ellipse
+                cx="0"
+                cy="-62"
+                rx="19"
+                ry="48"
+                fill="#f6c945"
+                transform="rotate(90)"
+              />
+
+              <ellipse
+                cx="0"
+                cy="-62"
+                rx="19"
+                ry="48"
+                fill="#f6c945"
+                transform="rotate(135)"
+              />
+
+              <ellipse
+                cx="0"
+                cy="-62"
+                rx="19"
+                ry="48"
+                fill="#f6c945"
+                transform="rotate(180)"
+              />
+
+              <ellipse
+                cx="0"
+                cy="-62"
+                rx="19"
+                ry="48"
+                fill="#f6c945"
+                transform="rotate(225)"
+              />
+
+              <ellipse
+                cx="0"
+                cy="-62"
+                rx="19"
+                ry="48"
+                fill="#f6c945"
+                transform="rotate(270)"
+              />
+
+              <ellipse
+                cx="0"
+                cy="-62"
+                rx="19"
+                ry="48"
+                fill="#f6c945"
+                transform="rotate(315)"
+              />
+
+            </g>
+
+
+            <!-- CENTRO -->
+
+            <circle
+              id="flowerCenter"
+              cx="0"
+              cy="0"
+              r="47"
+              fill="#704c2c"
+            />
+
+            <circle
+              cx="0"
+              cy="0"
+              r="34"
+              fill="#855c32"
+            />
+
+          </g>
+
+
+          <!-- MACETA -->
+
+          <g id="pot">
+
+            <path
+              d="M95 410
+                 L205 410
+                 L190 495
+                 Q150 515 110 495Z"
+              fill="#c9794e"
+            />
+
+            <rect
+              x="85"
+              y="395"
+              width="130"
+              height="35"
+              rx="10"
+              fill="#da8a5b"
+            />
+
+          </g>
+
+        </svg>
+
+      </div>
+
+
+      <!-- Indicador para tocar -->
+
+      <div id="tapIndicator" class="tap-indicator">
+
+        <span>☝️</span>
+
+        tocá para hacerlo crecer
+
+      </div>
+
+
+    </section>
+
+
+    <!-- ========================================
+         ESCENA 3 - REGALO
+    ========================================= -->
+
+    <section id="giftScene" class="scene">
+
+      <div class="gift-content">
+
+        <div class="final-sunflower">
+          🌻
+        </div>
+
+        <p class="small-text">
+          Y por todo eso...
+        </p>
+
+        <h2>
+          Tenés un regalo
+          <span>en camino</span>
+        </h2>
+
+        <div class="gift-box">
+          🎁
+        </div>
+
+        <p class="gift-description">
+          Hay una pequeña sorpresa viajando hacia vos.
+        </p>
+
+        <button id="trackingButton" class="main-button">
+          ¿Dónde está? 👀
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================
+     ESCENA 4 - VIAJE DEL REGALO
+========================================= -->
+
+<section id="travelScene" class="scene">
+
+    <div class="travel-background"></div>
+
+    <div class="travel-header">
+
+        <span class="small-text">
+            DELIVERY ESPECIAL
+        </span>
+
+        <h2>
+            Está haciendo un
+            <span>pequeño viaje...</span>
+        </h2>
+
+        <p>
+            tu regalo está saliendo desde Jujuy
+            y está viajando hacia vos.
+        </p>
+
+    </div>
+
+
+    <!-- ====================================
+         MAPA / RECORRIDO
+    ===================================== -->
+
+    <div class="travel-map">
+
+        <svg
+            id="travelSvg"
+            viewBox="0 0 400 520"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <!-- Ruta de fondo -->
+
+            <path
+                id="routeBackground"
+                d="
+                    M110 90
+                    C190 130,
+                     100 190,
+                     190 235
+                    C280 280,
+                     180 350,
+                     285 410
+                "
+                fill="none"
+                stroke="#e8dfc3"
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+
+
+            <!-- Ruta amarilla animada -->
+
+            <path
+                id="routePath"
+                d="
+                    M110 90
+                    C190 130,
+                     100 190,
+                     190 235
+                    C280 280,
+                     180 350,
+                     285 410
+                "
+                fill="none"
+                stroke="#e7b72f"
+                stroke-width="5"
+                stroke-linecap="round"
+            />
+
+
+            <!-- JUJUY -->
+
+            <circle
+                cx="110"
+                cy="90"
+                r="10"
+                class="location-dot"
+            />
+
+            <circle
+                cx="110"
+                cy="90"
+                r="19"
+                class="location-ring"
+            />
+
+
+            <text
+                x="135"
+                y="84"
+                class="map-city"
+            >
+                SAN SALVADOR
+            </text>
+
+            <text
+                x="135"
+                y="103"
+                class="map-province"
+            >
+                JUJUY
+            </text>
+
+
+            <!-- CHAMICAL -->
+
+            <circle
+                cx="285"
+                cy="410"
+                r="10"
+                class="location-dot destination"
+            />
+
+            <circle
+                cx="285"
+                cy="410"
+                r="19"
+                class="location-ring destination-ring"
+            />
+
+
+            <text
+                x="165"
+                y="448"
+                class="map-city destination-text"
+            >
+                CHAMICAL
+            </text>
+
+            <text
+                x="165"
+                y="468"
+                class="map-province destination-text"
+            >
+                LA RIOJA
+            </text>
+
+
+            <!-- PAQUETE -->
+
+            <g id="package">
+
+                <rect
+                    x="-19"
+                    y="-16"
+                    width="38"
+                    height="32"
+                    rx="5"
+                    fill="#d99b5b"
+                />
+
+                <rect
+                    x="-3"
+                    y="-16"
+                    width="6"
+                    height="32"
+                    fill="#f2cf87"
+                />
+
+                <path
+                    d="M-19 -4 H19"
+                    stroke="#b97c45"
+                    stroke-width="2"
+                />
+
+                <circle
+                    cx="0"
+                    cy="0"
+                    r="29"
+                    class="package-glow"
+                />
+
+            </g>
+
+        </svg>
+
+
+        <!-- <div class="distance-label">
+            <span>🌻</span>
+            De Jujuy a La Rioja
+        </div> -->
+
+    </div>
+
+
+    <!-- ====================================
+         ESTADO
+    ===================================== -->
+
+    <div
+        id="shippingStatus"
+        class="shipping-status"
+    >
+
+        <p class="status-label">
+            ESTADO DEL REGALITO
+        </p>
+
+        <div class="status-main">
+
+            <span class="status-pulse"></span>
+
+            <span>
+                EN CAMINO
+            </span>
+
+        </div>
+
+        <p class="status-description">
+            Cada vez está un poquito más cerca.
+        </p>
+
+        <div class="tracking-code-container">
+
+          <span class="tracking-code-label">
+              CÓDIGO DE SEGUIMIENTO
+          </span>
+
+          <div class="tracking-code-box">
+
+              <span id="trackingCode"></span>
+
+              <button
+                  id="copyTrackingButton"
+                  class="copy-button"
+                  aria-label="Copiar código de seguimiento"
+              >
+                  Copiar
+              </button>
+
+          </div>
+
+          <span
+              id="copyMessage"
+              class="copy-message"
+          >
+              Copiado ✓
+          </span>
+
+      </div>
+
+        <button
+            id="officialTrackingButton"
+            class="tracking-link"
+        >
+            Ver seguimiento oficial
+            <span>↗</span>
+        </button>
+
+    </div>
+
+</section>
+
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="/audio/musica.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    id="musicButton"
+    class="music-button"
+    aria-label="Activar o desactivar música"
+>
+    ♪
+</button>
+
+</html>

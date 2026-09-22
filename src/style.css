@@ -1,0 +1,1215 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+@import url(
+  'https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap'
+);
+
+:root {
+
+  --background: #fff9e8;
+
+  --yellow: #f6c945;
+
+  --yellow-light: #ffe898;
+
+  --green: #538d4e;
+
+  --brown: #704c2c;
+
+  --text: #37352f;
+
+  --white: #ffffff;
+
+}
+
+
+* {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    touch-action: manipulation;
+}
+
+button {
+
+  font-family: inherit;
+
+}
+
+
+/* =========================================
+   ESCENAS
+========================================= */
+
+.scene {
+
+  position: absolute;
+
+  width: 100%;
+  min-height: 100dvh;
+
+  top: 0;
+  left: 0;
+
+  display: none;
+
+  overflow: hidden;
+
+}
+
+
+.scene-active {
+
+  display: flex;
+
+}
+
+
+/* =========================================
+   PORTADA
+========================================= */
+
+#intro {
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background:
+
+    radial-gradient(
+      circle at 50% 40%,
+      #fffef8 0%,
+      #fff9e8 55%,
+      #fff3c7 100%
+    );
+
+}
+
+
+.intro-content {
+
+  position: relative;
+
+  z-index: 10;
+
+  padding: 30px;
+
+}
+
+
+.small-text {
+
+  font-size: 12px;
+
+  letter-spacing: 4px;
+
+  font-weight: 600;
+
+  opacity: .65;
+
+}
+
+
+.intro-content h1 {
+
+  margin-top: 25px;
+
+  font-family: "Caveat", cursive;
+
+  font-size: clamp(55px, 15vw, 90px);
+
+  line-height: .9;
+
+  font-weight: 600;
+
+}
+
+
+.intro-content h1 span {
+
+  display: block;
+
+  color: #d9a91a;
+
+}
+
+
+.intro-content p {
+
+  margin-top: 30px;
+
+  font-size: 15px;
+
+  opacity: .7;
+
+}
+
+
+/* =========================================
+   BOTÓN PRINCIPAL
+========================================= */
+
+.main-button {
+
+  margin-top: 35px;
+
+  padding: 16px 27px;
+
+  border: none;
+
+  border-radius: 100px;
+
+  background: var(--text);
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  box-shadow:
+
+    0 10px 30px rgba(0, 0, 0, .15);
+
+  transition:
+
+    transform .2s ease,
+    box-shadow .2s ease;
+
+}
+
+
+.main-button span {
+
+  margin-left: 8px;
+
+}
+
+
+.main-button:active {
+
+  transform: scale(.94);
+
+}
+
+
+/* =========================================
+   ESCENA GIRASOL
+========================================= */
+
+#flowerScene {
+
+  flex-direction: column;
+
+  align-items: center;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      #fffdf5 0%,
+      #fff8db 100%
+    );
+
+}
+
+
+.flower-header {
+
+  position: absolute;
+
+  top: 35px;
+
+  width: 100%;
+
+  text-align: center;
+
+  z-index: 20;
+
+}
+
+
+.counter {
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  opacity: .5;
+
+}
+
+
+#instruction {
+
+  margin-top: 8px;
+
+  font-family: "Caveat", cursive;
+
+  font-size: 24px;
+
+}
+
+
+/* =========================================
+   GIRASOL
+========================================= */
+
+.flower-container {
+
+  position: absolute;
+
+  bottom: -15px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: min(350px, 90vw);
+
+}
+
+
+#sunflower {
+
+  width: 100%;
+
+  height: auto;
+
+  overflow: visible;
+
+}
+
+
+/* =========================================
+   MENSAJES
+========================================= */
+
+.message-container {
+
+  position: absolute;
+
+  top: 22%;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 90%;
+
+  text-align: center;
+
+  z-index: 15;
+
+  pointer-events: none;
+
+}
+
+
+#growthMessage {
+
+  font-family: "Caveat", cursive;
+
+  font-size: clamp(30px, 9vw, 48px);
+
+  font-weight: 600;
+
+  color: var(--text);
+
+}
+
+
+/* =========================================
+   INDICADOR
+========================================= */
+
+.tap-indicator {
+
+  position: absolute;
+
+  bottom: 25px;
+
+  z-index: 30;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  opacity: .6;
+
+}
+
+
+.tap-indicator span {
+
+  display: block;
+
+  font-size: 25px;
+
+  margin-bottom: 5px;
+
+  text-align: center;
+
+}
+
+
+/* =========================================
+   REGALO
+========================================= */
+
+#giftScene {
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  background:
+
+    radial-gradient(
+      circle,
+      #fffef7 0%,
+      #fff5cc 100%
+    );
+
+}
+
+
+.gift-content {
+
+  padding: 30px;
+
+  max-width: 500px;
+
+}
+
+
+.final-sunflower {
+
+  font-size: 90px;
+
+  margin-bottom: 25px;
+
+}
+
+
+.gift-content h2 {
+
+  margin-top: 15px;
+
+  font-family: "Caveat", cursive;
+
+  font-size: clamp(45px, 13vw, 70px);
+
+  line-height: .9;
+
+}
+
+
+.gift-content h2 span {
+
+  display: block;
+
+  color: #d5a315;
+
+}
+
+
+.gift-box {
+
+  margin-top: 25px;
+
+  font-size: 65px;
+
+}
+
+
+.gift-description {
+
+  margin:
+
+    25px auto 0;
+
+  max-width: 300px;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+
+  opacity: .65;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (min-width: 700px) {
+
+  .flower-container {
+
+    width: 390px;
+
+  }
+
+}
+
+/* =========================================
+   MÚSICA
+========================================= */
+
+.music-button {
+    position: fixed;
+
+    top: 22px;
+    right: 22px;
+
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid rgba(55, 53, 47, 0.1);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    backdrop-filter: blur(10px);
+
+    color: var(--text);
+
+    font-size: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.music-button:active {
+    transform: scale(0.9);
+}
+
+.music-button.playing {
+    animation: musicPulse 2s infinite ease-in-out;
+}
+
+@keyframes musicPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* =========================================
+   PÉTALOS AMBIENTALES
+========================================= */
+
+.petal-container {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.falling-petal {
+    position: absolute;
+
+    top: -40px;
+
+    width: 13px;
+    height: 24px;
+
+    background: #f6c945;
+
+    border-radius:
+        80% 20%
+        70% 30%;
+
+    opacity: 0;
+}
+
+
+/* =========================================
+   FRASES FLOTANTES
+========================================= */
+
+.memory-messages {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 12;
+}
+
+.memory-message {
+    position: absolute;
+
+    font-family: "Caveat", cursive;
+
+    font-size: clamp(18px, 5vw, 25px);
+
+    color: #706342;
+
+    white-space: nowrap;
+
+    opacity: 0;
+}
+
+
+/* =========================================
+   BRILLO DEL GIRASOL
+========================================= */
+
+.sunflower-glow {
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(246, 201, 69, .5)
+        );
+}
+
+
+/* =========================================
+   PARTÍCULAS FINALES
+========================================= */
+
+.sparkle {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #f6c945;
+
+    pointer-events: none;
+
+    z-index: 20;
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 500px) {
+
+    .memory-message {
+        font-size: 19px;
+    }
+
+}
+
+
+/* =========================================
+   VIAJE DEL REGALO
+========================================= */
+
+#travelScene {
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 100dvh;
+
+    height: auto;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #fffef9,
+            #fff8df
+        );
+
+    padding-bottom: 50px;
+}
+
+#travelScene.scene-active {
+    display: flex;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    height: 100dvh;
+
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.travel-header {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    padding:
+        45px 25px 0;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.travel-header h2 {
+
+    margin-top: 12px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:
+        clamp(
+            38px,
+            10vw,
+            58px
+        );
+
+    line-height: .95;
+}
+
+
+.travel-header h2 span {
+
+    display: block;
+
+    color: #d5a315;
+}
+
+
+.travel-header p {
+
+    max-width: 320px;
+
+    margin:
+        17px auto 0;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    opacity: .6;
+}
+
+
+/* =========================================
+   MAPA
+========================================= */
+
+.travel-map {
+
+    width: min(
+        390px,
+        95vw
+    );
+
+    position: relative;
+
+    margin-top: 5px;
+}
+
+
+#travelSvg {
+
+    width: 100%;
+
+    overflow: visible;
+}
+
+
+/* =========================================
+   CIUDADES
+========================================= */
+
+.location-dot {
+
+    fill: #e3b52e;
+}
+
+
+.location-ring {
+
+    fill: none;
+
+    stroke: #e3b52e;
+
+    stroke-width: 2;
+
+    opacity: .25;
+}
+
+
+.destination {
+
+    fill: #538d4e;
+}
+
+
+.destination-ring {
+
+    stroke: #538d4e;
+}
+
+
+.map-city {
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    fill: #37352f;
+}
+
+
+.map-province {
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    fill: #918b7b;
+}
+
+
+.destination-text {
+
+    text-anchor: start;
+}
+
+
+/* =========================================
+   PAQUETE
+========================================= */
+
+#package {
+
+    filter:
+        drop-shadow(
+            0 8px 7px
+            rgba(0, 0, 0, .15)
+        );
+}
+
+
+.package-glow {
+
+    fill: #f6c945;
+
+    opacity: .08;
+}
+
+
+/* =========================================
+   DISTANCIA
+========================================= */
+
+.distance-label {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        9px 17px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .65
+        );
+
+    backdrop-filter:
+        blur(10px);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 8px 25px
+        rgba(
+            0,
+            0,
+            0,
+            .05
+        );
+}
+
+
+/* =========================================
+   ESTADO
+========================================= */
+
+.shipping-status {
+
+    width:
+        min(
+            350px,
+            88vw
+        );
+
+    margin:
+        -5px auto 45px;
+
+    padding:
+        24px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .75
+        );
+
+    border:
+        1px solid
+        rgba(
+            0,
+            0,
+            0,
+            .05
+        );
+
+    border-radius:
+        24px;
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(
+            87,
+            72,
+            25,
+            .08
+        );
+
+    text-align: center;
+}
+
+
+.status-label {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    opacity: .45;
+}
+
+
+.status-main {
+
+    margin-top: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+.status-pulse {
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #e3b52e;
+
+    box-shadow:
+        0 0 0
+        rgba(
+            227,
+            181,
+            46,
+            .5
+        );
+
+    animation:
+        statusPulse
+        1.8s
+        infinite;
+}
+
+
+@keyframes statusPulse {
+
+    0% {
+
+        box-shadow:
+            0 0 0 0
+            rgba(
+                227,
+                181,
+                46,
+                .45
+            );
+
+    }
+
+    70% {
+
+        box-shadow:
+            0 0 0 9px
+            rgba(
+                227,
+                181,
+                46,
+                0
+            );
+
+    }
+
+    100% {
+
+        box-shadow:
+            0 0 0 0
+            rgba(
+                227,
+                181,
+                46,
+                0
+            );
+
+    }
+
+}
+
+
+.status-description {
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    opacity: .55;
+}
+
+
+.tracking-link {
+
+    margin-top: 18px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #88701f;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.tracking-link span {
+
+    margin-left: 4px;
+}
+
+
+/* =========================================
+    CÓDIGO DE SEGUIMIENTO
+========================================= */
+
+.tracking-code-container {
+    margin-top: 22px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        rgba(0, 0, 0, .06);
+}
+
+
+.tracking-code-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    opacity: .45;
+}
+
+
+.tracking-code-box {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 12px 13px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(246, 201, 69, .10);
+
+    border:
+        1px solid
+        rgba(213, 163, 21, .15);
+}
+
+
+#trackingCode {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: .3px;
+
+    color: #5d522f;
+}
+
+
+.copy-button {
+    flex-shrink: 0;
+
+    padding: 7px 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #f6c945;
+
+    color: #554618;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.copy-message {
+    display: block;
+
+    height: 15px;
+
+    margin-top: 6px;
+
+    font-size: 9px;
+
+    color: #538d4e;
+
+    opacity: 0;
+}
